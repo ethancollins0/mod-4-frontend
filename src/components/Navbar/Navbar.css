@@ -1,0 +1,12 @@
+.navbar {
+    height: 100px;
+    width: 100%;
+    background-color: grey;
+    border: 1px solid black;
+    box-shadow: 3px 3px lightblue;         
+}
+
+.navbutton {
+    height: 100%;
+    width: 100px;
+}
