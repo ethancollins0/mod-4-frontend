@@ -6,8 +6,8 @@ import PropertyForm from './components/PropertyForm/PropertyForm'
 
 import './App.css'
 
-const BASE_URL =  'http://localhost:3001'
-// const BASE_URL = 'https://property-manager-backend.herokuapp.com'
+// const BASE_URL =  'http://localhost:3001'
+const BASE_URL = 'https://property-manager-backend.herokuapp.com'
 
 export default class App extends Component {
 
