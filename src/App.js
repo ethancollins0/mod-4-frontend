@@ -37,7 +37,7 @@ export default class App extends Component {
         username: this.state.temp_username_replace_with_token,
         property: property})
     }).then(resp => resp.json())
-    .then(property => this.setState({properties: [...this.state.properties, property]}))
+    .then(property => this.setState({properties: [...this.state.properties, property]}, () => console.log(this.state.properties)))
   }
 
 
