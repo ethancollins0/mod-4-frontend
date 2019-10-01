@@ -1,7 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 
-const Navbar = () => {
+const Navbar = ({ logout }) => {
 
 
     const handleClick = (event) => {
@@ -15,6 +15,7 @@ const Navbar = () => {
             <button name='home' onClick={handleClick} className='navbutton'>HOME</button>
             <button name='about' onClick={handleClick} className='navbutton'>ABOUT</button>
             <button name='employees' onClick={handleClick} className='navbutton'>EMPLOYEES</button>
+            <button name='logout' onClick={logout} className='navbutton'>LOG OUT</button>
         </div>
     )
 

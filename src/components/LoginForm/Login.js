@@ -16,10 +16,24 @@ export default class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.attemptLogin(this.state)
+        const keys = Object.keys(this.state)
+        let truth = true
+        keys.forEach(key => {
+            if (this.state[key] == false){
+                truth = false
+            }
+        })
+
+        if (truth){
+            this.attemptLogin(this.state)        
+        }
+
     }
 
     attemptLogin = (inputs) => {
+
+        console.log(inputs)
+
         const {username, password} = inputs
         fetch(LOGIN_URL, {
             method: 'POST',
@@ -30,7 +44,8 @@ export default class Login extends Component {
                 username: username,
                 password: password
             })
-        }).then(resp => resp.json())
+        })
+        .then(resp => resp.json())
         .then(response => {
             typeof response == 'string'
                 ? console.log('failed')
@@ -39,7 +54,11 @@ export default class Login extends Component {
     }
 
     handleLogin = (data) => {
-        this.props.authenticate(data)
+        const token = data[1]
+        const company_data = data[0]
+
+        window.localStorage.setItem('token', token)
+        this.props.authenticate(company_data)
     }
 
     render(){

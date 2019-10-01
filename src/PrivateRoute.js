@@ -6,13 +6,17 @@ import PropertyForm from './components/PropertyForm/PropertyForm'
 
 const PrivateRoute = (props) => {
     
+    const logout = () => {
+        props.logout()
+    }
+
     return(
         <div>
-            <Navbar />
+            <Navbar logout={logout}/>
             <PropertyForm addProperty={props.addProperty}/>
             <div className='content'>
-                <PropertyContainer properties={props.properties} />
-                <EmployeeContainer employees={props.employees} />
+                <PropertyContainer select={props.select_property} properties={props.properties} />
+                <EmployeeContainer select={props.select_employee} employees={props.employees} />
             </div>
          </div>
     )

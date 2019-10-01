@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { thisTypeAnnotation } from '@babel/types'
 
 export default class PropertyForm extends Component {
 
