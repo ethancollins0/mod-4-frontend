@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import PropertyContainer from './components/Properties/PropertyContainer'
-import EmployeeContainer from './components/Employees/EmployeeContainer'
-import Navbar from './components/Navbar/Navbar'
-import PropertyForm from './components/PropertyForm/PropertyForm'
+import Login from './Login'
 
 import './App.css'
+import PrivateRoute from './PrivateRoute';
 
 // const BASE_URL =  'http://localhost:3001'
 const BASE_URL = 'https://property-manager-backend.herokuapp.com'
@@ -23,8 +21,9 @@ export default class App extends Component {
   state = {
     properties: [],
     employees: [],
-    company_name: '',
-    temp_username_replace_with_token: 'username'
+    company_name: 'Temp name',
+    temp_username_replace_with_token: 'username',
+    authenticated: false,
   }
 
   addProperty = (property) => {
@@ -40,17 +39,26 @@ export default class App extends Component {
     .then(property => this.setState({properties: [...this.state.properties, property]}, () => console.log(this.state.properties)))
   }
 
+  authenticated = () => {
+    return this.state.authenticated
+    ? <PrivateRoute addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    : <Login authenticate={this.authenticate}/>
+  }
+
+  authenticate = (data) => {
+    const {employees, properties, company} = data
+    console.log(data)
+    this.setState({employees, properties}, () => {
+      this.setState({ authenticated: true })
+    })
+  }
+
 
 
   render(){
     return (
       <div>
-        <Navbar />
-        <PropertyForm addProperty={this.addProperty}/>
-        <div className='content'>
-          <PropertyContainer properties={this.state.properties} />
-          <EmployeeContainer employees={this.state.employees} />
-        </div>
+        {this.authenticated()}
       </div>
     );
   }
