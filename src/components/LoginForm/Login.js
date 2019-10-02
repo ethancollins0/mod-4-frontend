@@ -27,13 +27,10 @@ export default class Login extends Component {
         if (truth){
             this.attemptLogin(this.state)        
         }
-
+        console.log('doing stuff')
     }
 
     attemptLogin = (inputs) => {
-
-        console.log(inputs)
-
         const {username, password} = inputs
         fetch(LOGIN_URL, {
             method: 'POST',
@@ -51,6 +48,7 @@ export default class Login extends Component {
                 ? console.log('failed')
                 : this.handleLogin(response)
         })
+        .catch((err) => console.log(err))
     }
 
     handleLogin = (data) => {

@@ -19,11 +19,14 @@ export default class App extends Component {
   getData = () => {
     return fetch(BASE_URL + '/home',  {
       method: 'POST',
-      headers: {"Authorization": `Bearer ${window.localStorage.getItem('token')}`},
+      headers: {"Authorization": `Bearer ${window.localStorage.getItem('token')}`,
+      "Content-Type": "application/json"
+    },
     })
       .then(resp => resp.json())
       .then(resp => {
-        return resp.expiredAt
+        console.log(resp)
+        return resp.expiredAt || resp == 'forbidden'
           ? this.logout()
           : this.setState({properties: resp.properties, employees: resp.employees})
       })
