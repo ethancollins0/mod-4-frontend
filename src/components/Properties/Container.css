@@ -1,6 +1,25 @@
-.container {
+.properties-container {
+    width: auto;
+    max-width: 70%;
+}
+
+.column {
+    width: 100%;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.row {
     height: 100%;
-    display: flex;
-    /* justify-content: right; */
-    align-content: flex-start;
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto auto;
+    min-height: 40px;
+    max-height: 60px;
+    height: auto;
+    text-align: center;
+    box-sizing: border-box;
 }

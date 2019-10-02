@@ -1,3 +1,40 @@
+.row {
+    width: 100%;
+    display: inline-grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto auto;
+    min-height: 40px;
+    max-height: 60px;
+    height: auto;
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.properties-container {
+    width: 70%;
+
+}
+
+.column {
+    text-align: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+}
+
+.title {
+    font-size: 20px;
+}
+
+.row:first-child {
+    background-color: lightblue;
+    border-radius: 3px 3px 0 0;
+}
+
+.row:last-child {
+    border-radius: 0 0 3px 3px;
+}
+
 .active {
     background-color: blue;
 }

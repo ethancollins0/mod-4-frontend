@@ -3,7 +3,6 @@ import './Property.css'
 
 export default class Property extends Component {
     
-    
     state = {
         active: false,
     }
@@ -14,31 +13,31 @@ export default class Property extends Component {
     }
 
 
-    renderProperty = (details) => {
+    renderProperty = () => {
         const {address, tenant_email, tenant_phone, tenant_name, latest_survey_date} = this.props.property
         return this.state.active
-            ? (<div className='active' onClick={this.handleClick}>
-                    <h1>{address}</h1>
-                    <p>{tenant_email}</p>
-                    <p>{tenant_phone}</p>
-                    <p>{tenant_name}</p>
-                    <p>{latest_survey_date}</p>
-                </div>)
-            : (<div onClick={this.handleClick}>
-                    <h1>{address}</h1>
-                    <p>{tenant_email}</p>
-                    <p>{tenant_phone}</p>
-                    <p>{tenant_name}</p>
-                    <p>{latest_survey_date}</p>
+            ? (<div className='active row' onClick={this.handleClick}>
+                    <span className='column'><p>{address}</p></span>
+                    <span className='column'><p>{tenant_email}</p></span>
+                    <span className='column'><p>{tenant_phone}</p></span>
+                    <span className='column'><p>{tenant_name}</p></span>
+                    <span className='column'><p>{latest_survey_date}</p></span>    
+               </div>)
+            : (<div onClick={this.handleClick} className='row'>
+                    <span className='column'><p>{address}</p></span>
+                    <span className='column'><p>{tenant_email}</p></span>
+                    <span className='column'><p>{tenant_phone}</p></span>
+                    <span className='column'><p>{tenant_name}</p></span>
+                    <span className='column'><p>{latest_survey_date}</p></span> 
                </div>)
     }
 
     render(){
 
         return (
-            <div>
+            <>
                 {this.renderProperty()}
-            </div>
+            </>
             
         )
     }

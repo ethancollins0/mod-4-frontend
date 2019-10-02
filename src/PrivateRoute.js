@@ -14,10 +14,16 @@ const PrivateRoute = (props) => {
         <div>
             <Navbar logout={logout}/>
             <PropertyForm addProperty={props.addProperty}/>
+            <span>
             <div className='content'>
-                <PropertyContainer select={props.select_property} properties={props.properties} />
-                <EmployeeContainer select={props.select_employee} employees={props.employees} />
+                <div>
+                    <PropertyContainer select={props.select_property} properties={props.properties} />
+                </div>
+                <div>
+                    <EmployeeContainer select={props.select_employee} employees={props.employees} />
+                </div>
             </div>
+            </span>
          </div>
     )
 }

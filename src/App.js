@@ -5,8 +5,9 @@ import Signup from './components/SignupForm/Signup'
 import './App.css'
 import PrivateRoute from './PrivateRoute';
 
-const BASE_URL =  'http://localhost:3001'
-// const BASE_URL = 'https://property-manager-backend.herokuapp.com'
+// const BASE_URL =  'http://localhost:3001'
+// const BASE_URL = 'http://localhost:5000'
+const BASE_URL = 'https://property-manager-backend.herokuapp.com'
 
 export default class App extends Component {
 
@@ -17,16 +18,19 @@ export default class App extends Component {
   }
 
   getData = () => {
+    if (window.localStorage.getItem('token') == null){
+      this.logout()
+    }
+
     return fetch(BASE_URL + '/home',  {
       method: 'POST',
       headers: {"Authorization": `Bearer ${window.localStorage.getItem('token')}`,
-      "Content-Type": "application/json"
-    },
-    })
-      .then(resp => resp.json())
+                "Content-Type": "application/json"
+      },
+    }).then(resp => resp.json())
       .then(resp => {
         console.log(resp)
-        return resp.expiredAt || resp == 'forbidden'
+        return resp.expiredAt || resp == 'forbidden' || resp.message
           ? this.logout()
           : this.setState({properties: resp.properties, employees: resp.employees})
       })
