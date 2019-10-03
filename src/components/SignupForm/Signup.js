@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './Signup.css'
 
 export default class Signup extends Component {
 
@@ -28,19 +29,22 @@ export default class Signup extends Component {
         }
     }
 
-
-    render(){
-        return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input name='company' value={this.state.company} onChange={this.handleChange} placeholder='company' />
-                    <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
-                    <input name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
-                    <button>Signup</button>
-                </form>
-            </div>
-        )
+    handleClick = () => {
+        this.props.changeForm()
     }
 
 
+    render(){
+        return(
+            <div className='signup-form-container'>
+                <form className='signup-form' onSubmit={this.handleSubmit}>
+                    <input className='signup-form-input' name='company' value={this.state.company} onChange={this.handleChange} placeholder='company' />
+                    <input className='signup-form-input' name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
+                    <input className='signup-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
+                    <button className='signup-form-button'>Signup</button>
+                </form>
+                <p className='login-link' onClick={this.handleClick}>Log In</p>
+            </div>
+        )
+    }
 }
