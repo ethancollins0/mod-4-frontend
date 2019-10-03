@@ -1,6 +1,6 @@
 import React from 'react'
 import Employee from './Employee'
-import './Container.css'
+import './Employee.css'
 
 const EmployeeContainer = ({ employees, select }) => {
 
@@ -11,7 +11,11 @@ const EmployeeContainer = ({ employees, select }) => {
     }
 
     return (
-        <div className='container'>
+        <div className='employees-container'>
+            <div className='employee-row'>
+                <span className='title'><strong>Employee</strong></span>
+                <span className='title'><strong>Email</strong></span>
+            </div>
             {renderEmployees()}
         </div>
     )

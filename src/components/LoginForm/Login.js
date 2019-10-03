@@ -60,14 +60,19 @@ export default class Login extends Component {
         this.props.authenticate(company_data)
     }
 
+    handleClick = () => {
+        this.props.changeForm()
+    }
+
     render(){
         return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
-                    <input name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
-                    <button>Login</button>
+            <div className='login-form-container'>
+                <form className='login-form' onSubmit={this.handleSubmit}>
+                    <input className='login-form-input' name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
+                    <input className='login-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
+                    <button className='login-form-button'>Login</button>
                 </form>
+                <p className='signup-link' onClick={this.handleClick}>Sign Up</p>
             </div>
         )
     }

@@ -3,6 +3,7 @@ import Login from './components/LoginForm/Login'
 import Signup from './components/SignupForm/Signup'
 
 import './App.css'
+import './components/LoginForm/Login.css'
 import PrivateRoute from './PrivateRoute';
 
 // const BASE_URL =  'http://localhost:3001'
@@ -11,6 +12,16 @@ const BASE_URL = 'https://property-manager-backend.herokuapp.com'
 
 export default class App extends Component {
 
+  state = {
+    properties: [],
+    employees: [],
+    company_name: 'Temp name',
+    authenticated: false,
+    selected_employees: [],
+    selected_properties: [],
+    login: true,
+  }
+  
   componentDidMount(){
     window.localStorage.getItem('token')
       ? this.setState({ authenticated: true }, () => this.getData())
@@ -40,14 +51,10 @@ export default class App extends Component {
       // })
   }
 
-  state = {
-    properties: [],
-    employees: [],
-    company_name: 'Temp name',
-    authenticated: false,
-    selected_employees: [],
-    selected_properties: []
+  changeForm = () => {
+    this.setState({ login: !this.state.login })
   }
+
 
   addProperty = (property) => {
     console.log(property)
@@ -93,10 +100,13 @@ export default class App extends Component {
   authenticated = () => {
     return this.state.authenticated
     ? <PrivateRoute select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
-    : (<div>
-        <Login authenticate={this.authenticate}/> 
-        <Signup signup={this.handleSignup}/>
-       </div>)
+    : this.initializeForm()
+  }
+
+  initializeForm = () => {
+    return this.state.login
+      ? <Login changeForm={this.changeForm} authenticate={this.authenticate}/>
+      : <Signup changeForm={this.changeForm} signup={this.handleSignup}/>
   }
 
   authenticate = (data) => {
@@ -115,16 +125,10 @@ export default class App extends Component {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        user: {
-          company, username, password
-        }
-      })
+      body: JSON.stringify({ company, username, password })
     }).then(resp => resp.json())
     .then(console.log)
   }
-
-
 
   render(){
     return (

@@ -8,7 +8,6 @@ export default class Employee extends Component {
     }
 
     handleClick = () => {
-        console.log(this.props.employee)
         this.props.select(this.props.employee)
         this.setState({ active: !this.state.active})
     }
@@ -17,14 +16,14 @@ export default class Employee extends Component {
         const {employee} = this.props
         return this.state.active
             ? (
-                <div className='employee selected' onClick={this.handleClick}>
-                    <p>{employee.name}</p>
-                    <p>{employee.email}</p>
+                <div className='active employee-row' onClick={this.handleClick}>
+                    <span className='column'><p>{employee.name}</p></span>
+                    <span className='column'><p>{employee.email}</p></span>
                  </div>
                 )
-            : (<div className='employee' onClick={this.handleClick}>
-                <p>{employee.name}</p>
-                <p>{employee.email}</p>
+            : (<div className='employee-row' onClick={this.handleClick}>
+                <span className='column'><p>{employee.name}</p></span>
+                <span className='column'><p>{employee.email}</p></span>
               </div>)
     }
 
