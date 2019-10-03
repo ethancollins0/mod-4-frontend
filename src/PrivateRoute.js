@@ -9,7 +9,8 @@ export default class PrivateRoute extends Component {
     
     state = {
         propertyForm: true,
-        employeeForm: true
+        employeeForm: true,
+        surveyFrequency: 2 //number of surveys per year
     }
 
     logout = () => {
@@ -31,7 +32,7 @@ export default class PrivateRoute extends Component {
                 {this.state.employeeForm ? <EmployeeForm addEmployee={props.addEmployee}/> : null}
                 <div className='content'>
                     <div>
-                        <PropertyContainer select={props.select_property} properties={props.properties} />
+                        <PropertyContainer surveyFrequency={this.state.surveyFrequency} select={props.select_property} properties={props.properties} />
                     </div>
                     <div>
                         <EmployeeContainer select={props.select_employee} employees={props.employees} />

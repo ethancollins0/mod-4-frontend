@@ -16,6 +16,20 @@
     cursor: auto;
 }
 
+.urgent {
+    background-color: #F64D0D;
+}
+
+.upcoming {
+    background-color: #FBCD26;
+}
+
+.done {
+    background-color: #8FBB09;
+}
+
+
+
 .properties-container {
     width: 80%;
     border: 1px solid black;

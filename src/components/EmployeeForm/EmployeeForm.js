@@ -22,14 +22,12 @@ export default class EmployeeForm extends Component {
         return(
             <div className='employee-form-container'>
                 <form onSubmit={this.handleSubmit}>
-                    <input className='employee-form-input' name='name' value={this.state.name} onChange={this.handleChange}/>
-                    <input className='employee-form-input' name='email' value={this.state.email} onChange={this.handleChange}/>
+                    <input className='employee-form-input' placeholder='name' name='name' value={this.state.name} onChange={this.handleChange} required/>
+                    <input type='email' className='employee-form-input' placeholder='email' name='email' value={this.state.email} onChange={this.handleChange} required/>
                     <button className='employee-form-button'>Add Employee</button>
                 </form>
             </div>
         )
     }
-
-
 }
 
