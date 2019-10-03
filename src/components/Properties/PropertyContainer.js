@@ -2,11 +2,11 @@ import React from 'react'
 import Property from './Property'
 import './Property.css'
 
-const PropertyContainer = ({ properties, select, surveyFrequency }) => {
+const PropertyContainer = ({ properties, select, surveyFrequency, toggleForm }) => {
 
     const renderProperties = () => {
         return properties.map(property => (
-            <Property surveyFrequency={surveyFrequency} select={select} property={property} />
+            <Property toggleForm={toggleForm} surveyFrequency={surveyFrequency} select={select} property={property} />
         ))
     }
 
@@ -32,6 +32,7 @@ const PropertyContainer = ({ properties, select, surveyFrequency }) => {
                     <span className='title'><strong>Tenant Email</strong></span>
                     <span className='title'><strong>Tenant Phone</strong></span>
                     <span className='title'><strong>Last Survey Date</strong></span>
+                    <span className='title'><strong>Edit Property</strong></span>
             </div>
                     {sortProperties()}
         </div>

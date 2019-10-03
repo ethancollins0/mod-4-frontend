@@ -89,6 +89,25 @@ export default class App extends Component {
     this.setState({ selected_employees }, () => console.log(this.state.selected_employees))
   }
 
+  addEmployee = (inputs) => {
+    const {name, email} = inputs
+    fetch(BASE_URL + '/employees', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        name, email
+      })
+    }).then(res => res.json())
+    .then(res => {
+      return res.name && res.email
+        ? this.setState({ employees: [...this.state.employees, res] })
+        : null
+    })
+  }
+
   selectProperty = (current_property) => {
     let selected_properties = this.state.selected_properties
     this.state.selected_properties.includes(current_property)
@@ -99,7 +118,7 @@ export default class App extends Component {
  
   authenticated = () => {
     return this.state.authenticated
-    ? <PrivateRoute select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    ? <PrivateRoute select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
     : this.initializeForm()
   }
 

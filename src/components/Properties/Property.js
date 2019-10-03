@@ -8,11 +8,16 @@ export default class Property extends Component {
         date: ' done'
     }
 
-    handleClick = () => {
-        this.state.active == 'row'
-            ? this.setState({ active: 'active row' })
-            : this.setState({ active: 'row' })
-        this.props.select(this.props.property)
+    handleClick = (event) => {
+        if (event.target.tagName != 'BUTTON'){
+            this.state.active == 'row'
+                ? this.setState({ active: 'active row' })
+                : this.setState({ active: 'row' })
+            this.props.select(this.props.property) 
+        } else {
+            return
+        }
+        
     }
 
     componentDidMount(){
@@ -64,6 +69,7 @@ export default class Property extends Component {
             <span className='column'><p>{tenant_email}</p></span>
             <span className='column'><p>{tenant_name}</p></span>
             <span className='column'><p>{latest_survey_date}</p></span>
+            <span className='column'><button onClick={() => this.props.toggleForm('editPropertyForm', this.props.property)} className='property-button'>Edit</button></span>
         </div>)
     }
 
