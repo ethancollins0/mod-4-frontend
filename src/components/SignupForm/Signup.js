@@ -40,7 +40,7 @@ export default class Signup extends Component {
                 <form className='signup-form' onSubmit={this.handleSubmit}>
                     <input className='signup-form-input' name='company' value={this.state.company} onChange={this.handleChange} placeholder='company' />
                     <input className='signup-form-input' name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
-                    <input className='signup-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
+                    <input type='password' className='signup-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
                     <button className='signup-form-button'>Signup</button>
                 </form>
                 <p className='login-link' onClick={this.handleClick}>Log In</p>

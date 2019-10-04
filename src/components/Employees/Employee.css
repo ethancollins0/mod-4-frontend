@@ -1,7 +1,14 @@
 .employees-container {
-    width: 100%;
+    width: auto;
     border: 1px solid black;
     border-radius: 3px 3px;
+    min-width: 350px;
+    max-width: 450px;
+    margin-left: 10px;
+}
+
+.employee-component-container {
+    width: max-content;
 }
 
 .employees-container:hover {
@@ -18,11 +25,16 @@
     height: auto;
     text-align: center;
     box-sizing: border-box;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    background-color: #ffffff;
 }
 
 .employee-row:first-child {
-    background-color: lightblue;
     border-radius: 3px 3px 0 0;
+    border-width: 0 0 1px 0;
+    background-color: #ffffff;
+    border-top: 1px solid black;
 }
 
 .employee-row:last-child {
@@ -31,4 +43,8 @@
 
 p {
     height: 100%;
+}
+
+.active {
+    background-color: lightgrey;
 }

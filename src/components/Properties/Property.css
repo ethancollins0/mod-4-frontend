@@ -1,7 +1,7 @@
 .row {
     width: 100%;
     display: inline-grid;
-    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     min-height: 40px;
     max-height: 60px;
@@ -16,8 +16,40 @@
     cursor: auto;
 }
 
+.urgent {
+    /* background-color: #F64D0D; */
+    background-color: #BEDB92   ;
+}
+
+.upcoming {
+    /* background-color: #FBCD26; */
+    background-color: #77C063;
+}
+
+.done {
+    background-color: #569358;
+    /* background-color: #8FBB09; */
+}
+
+.property-button {
+    height: 90%;
+    width: 90%;
+    max-height: 46px;
+    border: 1px solid black;
+    margin: 3px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.property-button:active {
+    background-color: lightgrey;
+}
+
 .properties-container {
-    width: 80%;
+    width: auto;
+    min-width: 800px;
     border: 1px solid black;
     border-radius: 3px 3px 3px 3px;
 }
@@ -30,6 +62,7 @@
     text-align: center;
     box-sizing: border-box;
     height: 100%;
+    word-wrap: break-word;
 }
 
 .title {
@@ -37,13 +70,15 @@
 }
 
 .row:first-child {
-    background-color: lightblue;
     border-radius: 3px 3px 0 0;
+    border-width: 0 0 1px 0;
+    background-color: #ffffff;
+    border-top: 1px solid black;
 }
 
 .row:last-child {
     border-radius: 0 0 3px 3px;
-}
+}z
 
 .active {
     background-color: lightgrey;

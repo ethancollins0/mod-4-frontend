@@ -1,0 +1,24 @@
+.employee-form-container {
+    display: flex;
+}
+
+.employee-form {
+    display: flex;
+}
+
+.employee-form-input {
+    min-width: 200px;
+    height: 30px;
+    padding: 10px;
+    margin: 20px;
+    font-size: 15px;
+}
+
+.employee-form-button {
+    min-width: 200px;
+    height: 50px;
+    padding: 10px;
+    margin: 20px;
+    align-self: center;
+    font-size: 15px;
+}
