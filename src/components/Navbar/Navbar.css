@@ -7,6 +7,7 @@
     display: flex;    
     justify-content: space-between;
     background-color: lightblue;
+    min-width: 800px;
 }
 
 .navbar {
@@ -35,6 +36,7 @@
     justify-content: space-evenly;
     border: 1px solid black;
     border-radius: 5px;
+    word-wrap: break-word;
 }
 
 .color-box:nth-child(1) {

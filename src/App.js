@@ -7,7 +7,8 @@ import './components/LoginForm/Login.css'
 import PrivateRoute from './PrivateRoute';
 import { resolve } from 'url';
 
-const BASE_URL = 'https://property-manager-backend.herokuapp.com'
+// const BASE_URL = 'https://property-manager-backend.herokuapp.com'
+const BASE_URL = 'http://localhost:3001'
 
 export default class App extends Component {
 
@@ -82,7 +83,7 @@ export default class App extends Component {
       },
       body: JSON.stringify({property: property})
     }).then(resp => resp.json())
-    .then(property => this.setState({properties: [...this.state.properties, property]}, () => console.log(this.state.properties)))
+    .then(property => this.setState({properties: [...this.state.properties, property]}))
   }
 
   logout = () => {
@@ -93,7 +94,6 @@ export default class App extends Component {
       authenticated: false,
     }, () => {
       window.localStorage.removeItem('token')
-      window.location.replace('/login')
     })
   }
 
