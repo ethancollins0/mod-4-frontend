@@ -46,7 +46,7 @@ export default class PrivateRoute extends Component {
 
         return(
             <div>
-                <Navbar toggleForm={this.toggleForm} logout={this.logout}/>
+                <Navbar email={props.email} toggleForm={this.toggleForm} logout={this.logout}/>
                 {this.state.propertyForm ? <PropertyForm addProperty={props.addProperty}/> : null}
                 {this.state.employeeForm ? <EmployeeForm addEmployee={props.addEmployee}/> : null}
                 {this.state.editPropertyForm ? <EditPropertyForm deleteProperty={this.deleteProperty} updateProperty={props.updateProperty} property={this.state.property_to_edit}/> : null}

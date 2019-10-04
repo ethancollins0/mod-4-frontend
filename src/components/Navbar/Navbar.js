@@ -2,12 +2,7 @@ import React from 'react'
 import './Navbar.css'
 
 
-const Navbar = ({ logout, toggleForm }) => {
-
-
-    const handleClick = (event) => {
-        console.log(event.target.name)
-    }
+const Navbar = ({ logout, toggleForm, email }) => {
 
     const handleToggle = (event) => {
         toggleForm(event.target.name)
@@ -24,6 +19,7 @@ const Navbar = ({ logout, toggleForm }) => {
                 <div className='color-box'><h2>Completed</h2></div>
             </div>
             <div className='navbar'>
+                <button name='email' onClick={email} className='navbutton'>Email Properties</button>
                 <button name='propertyForm' onClick={handleToggle} className='navbutton'>Add Property</button>
                 <button name='employeeForm' onClick={handleToggle} className='navbutton'>Add Employee</button>
                 <button name='logout' onClick={logout} className='navbutton'>Log Out</button>

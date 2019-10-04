@@ -40,7 +40,6 @@ export default class App extends Component {
       },
     }).then(resp => resp.json())
       .then(resp => {
-        console.log(resp)
         return resp.expiredAt || resp == 'forbidden' || resp.message
           ? this.logout()
           : this.setState({properties: resp.properties, employees: resp.employees})
@@ -55,10 +54,20 @@ export default class App extends Component {
     this.setState({ login: !this.state.login })
   }
 
-  editProperty = (property) => {
-
+  email = () => {
+    fetch(BASE_URL + '/email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        employees: this.state.selected_employees,
+        properties: this.state.selected_properties
+      })
+    }).then(resp => resp.json())
+    .then(console.log)
   }
-
 
   addProperty = (property) => {
     console.log(property)
@@ -90,7 +99,7 @@ export default class App extends Component {
     this.state.selected_employees.includes(current_employee)
       ? selected_employees = selected_employees.filter(employee => (employee != current_employee))
       : selected_employees.push(current_employee)
-    this.setState({ selected_employees }, () => console.log(this.state.selected_employees))
+    this.setState({ selected_employees })
   }
 
   addEmployee = (inputs) => {
@@ -132,8 +141,8 @@ export default class App extends Component {
       })
     }).then(resp => resp.json())
     .then(resp => {
-        return resp.property
-          ? this.updateLocalProperty(resp.property)
+        return resp.outcome == 'success'
+          ? this.updateLocalProperty(property) // ? this.updateLocalProperty(resp.property)
           : null
     })
   }
@@ -168,18 +177,19 @@ export default class App extends Component {
     this.setState({ properties: properties_array })
   }
 
-  updateLocalProperty = (property) => {
+  updateLocalProperty = (updated_property) => {
+    console.log(updated_property)
     let properties = this.state.properties
-    // console.log(properties)
-    let new_properties = properties.map(prop => (prop.id == property.id ? property : prop ))
-
-    this.setState({ properties: new_properties }, () => console.log(this.state.properties))
-    // console.log(properties)
+    properties = properties.filter(property => {
+      return property.id != updated_property.id
+    })
+    properties.push(updated_property)
+    this.setState({ properties })
   }
  
   authenticated = () => {
     return this.state.authenticated
-    ? <PrivateRoute deleteProperty={this.deleteProperty} updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    ? <PrivateRoute email={this.email} deleteProperty={this.deleteProperty} updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
     : this.initializeForm()
   }
 

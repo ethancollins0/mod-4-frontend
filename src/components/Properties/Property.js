@@ -43,11 +43,9 @@ export default class Property extends Component {
         survey_date = survey_date.split('-')
         if (parseInt(survey_date[0]) - latest_date[0]  <= 0){
             if (parseInt(survey_date[1]) - parseInt(latest_date[1]) == 1){
-                console.log(this.props.property.address, 'upcoming block 1')
                 this.setState({ date: ' upcoming' })
                 return
             } else if (parseInt(survey_date[1]) - parseInt(latest_date[1]) <= 0){
-                console.log(this.props.property.address, 'urgent block 1')
                 this.setState({ date: ' urgent' })
                 return
             }
@@ -56,11 +54,9 @@ export default class Property extends Component {
         survey_date = survey_date.join('')
         latest_date = latest_date.join('')
         if (parseInt(survey_date) - parseInt(latest_date) > 0){
-            console.log(this.props.property.address, 'done block 1')
             this.setState({ date: ' done'})
             return
         } else {
-            console.log(this.props.property.address, 'urgenr block 2')
             this.setState({ date: ' urgent' })
             return
         }
