@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-const LOGIN_URL = 'http://localhost:3001/login'
-// const LOGIN_URL = 'https://property-manager-backend.herokuapp.com/login'
+// const LOGIN_URL = 'http://localhost:3001/login'
+const LOGIN_URL = 'https://property-manager-backend.herokuapp.com/login'
 
 export default class Login extends Component {
 

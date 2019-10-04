@@ -6,9 +6,7 @@ import './App.css'
 import './components/LoginForm/Login.css'
 import PrivateRoute from './PrivateRoute';
 
-const BASE_URL =  'http://localhost:3001'
-// const BASE_URL = 'http://localhost:5000'
-// const BASE_URL = 'https://property-manager-backend.herokuapp.com'
+const BASE_URL = 'https://property-manager-backend.herokuapp.com'
 
 export default class App extends Component {
 
