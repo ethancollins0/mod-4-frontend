@@ -2,11 +2,11 @@ import React from 'react'
 import Employee from './Employee'
 import './Employee.css'
 
-const EmployeeContainer = ({ employees, select }) => {
+const EmployeeContainer = ({ employees, select, deleteEmployee }) => {
 
     const renderEmployees = () => {
         return employees.map(employee => (
-            <Employee select={select} employee={employee} />
+            <Employee deleteEmployee={deleteEmployee} select={select} employee={employee} />
         ))
     }
 
@@ -15,6 +15,7 @@ const EmployeeContainer = ({ employees, select }) => {
             <div className='employee-row'>
                 <span className='title'><strong>Employee</strong></span>
                 <span className='title'><strong>Email</strong></span>
+                <span className='title'><strong>Delete</strong></span>
             </div>
             {renderEmployees()}
         </div>
