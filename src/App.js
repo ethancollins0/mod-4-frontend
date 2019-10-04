@@ -158,13 +158,14 @@ export default class App extends Component {
 
   deleteLocalProperty = (property) => {
     let properties = this.state.properties
-    properties = properties.map(prop => {
+    let properties_array = []
+    properties.map(prop => {
       if (prop.id != property.id){
-        return prop
+        properties_array.push(prop)
       }
     })
-    console.log(property, properties)
-  //   this.setState({ properties })
+    // console.log(property, properties)
+    this.setState({ properties: properties_array })
   }
 
   updateLocalProperty = (property) => {

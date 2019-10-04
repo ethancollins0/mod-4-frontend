@@ -16,3 +16,7 @@ a:focus {
 body {
     background-color: #99ccff;
 }
+
+.content button {
+    font-size: 15px;
+}

@@ -6,15 +6,47 @@
     box-shadow: 2px 2px #000000;     
     display: flex;    
     justify-content: space-between;
+    background-color: lightblue;
 }
 
 .navbar {
     display: flex;
+    justify-content: space-between;
+    word-wrap: break-word;
 }
 
 .navlogo {
     height: 100%;
-    
+}
+
+.color-container {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.color-box {
+    display: flex;
+    height: 75%;
+    width: 25%;
+    flex-direction: row;
+    align-items: center;
+    align-self: center;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.color-box:nth-child(1) {
+    background-color: #BEDB92;
+}
+
+.color-box:nth-child(2) {
+    background-color: #77C063;
+}
+
+.color-box:nth-child(3) {
+    background-color: #569358;
 }
 
 .navbutton {
@@ -26,5 +58,5 @@
     height: 100%;
     width: 120px;
     justify-self: flex-start;
-    background-color: skyblue;
+    background-color: #ffffff;
 }
