@@ -5,6 +5,7 @@ import Signup from './components/SignupForm/Signup'
 import './App.css'
 import './components/LoginForm/Login.css'
 import PrivateRoute from './PrivateRoute';
+import { resolve } from 'url';
 
 const BASE_URL = 'https://property-manager-backend.herokuapp.com'
 
@@ -145,6 +146,30 @@ export default class App extends Component {
     })
   }
 
+  deleteEmployee = (employee) => {
+    fetch(BASE_URL + '/employee', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        employee
+      })
+    }).then(resp => resp.json())
+    .then(outcome => {
+      return outcome == 'Deleted'
+        ? this.deleteLocalEmployee(employee.id)
+        : null
+    })
+  }
+
+  deleteLocalEmployee = (id) => {
+    let employees = this.state.employees
+    employees = employees.filter(employee => (employee.id != id))
+    this.setState({ employees })
+  }
+
   deleteProperty = (property) => {
     fetch(BASE_URL + '/property', {
       method: 'DELETE',
@@ -187,7 +212,7 @@ export default class App extends Component {
  
   authenticated = () => {
     return this.state.authenticated
-    ? <PrivateRoute email={this.email} deleteProperty={this.deleteProperty} updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    ? <PrivateRoute email={this.email} deleteEmployee={this.deleteEmployee} deleteProperty={this.deleteProperty} updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
     : this.initializeForm()
   }
 

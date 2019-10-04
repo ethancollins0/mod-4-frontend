@@ -18,7 +18,7 @@
 .employee-row {
     width: 100%;
     display: inline-grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto auto;
     min-height: 40px;
     max-height: 60px;
@@ -28,6 +28,19 @@
     border-style: solid;
     border-width: 0 0 1px 0;
     background-color: #ffffff;
+}
+
+.employee-row button {
+    height: 90%;
+    width: max-content;
+    max-height: 46px;
+    border: 1px solid black;
+    margin: 3px;
+    float: right;
+}
+
+.employee-button:active {
+    background-color: lightgrey;
 }
 
 .employee-row:first-child {

@@ -55,7 +55,7 @@ export default class PrivateRoute extends Component {
                         <PropertyContainer toggleForm={this.toggleForm} surveyFrequency={this.state.surveyFrequency} select={props.select_property} properties={props.properties} />
                     </div>
                     <div className='employee-component-container'>
-                        <EmployeeContainer addEmployee={props.addEmployee} select={props.select_employee} employees={props.employees} />
+                        <EmployeeContainer deleteEmployee={props.deleteEmployee} addEmployee={props.addEmployee} select={props.select_employee} employees={props.employees} />
                     </div>
                 </div>
             </div>
