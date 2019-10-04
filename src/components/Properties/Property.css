@@ -17,15 +17,18 @@
 }
 
 .urgent {
-    background-color: #F64D0D;
+    /* background-color: #F64D0D; */
+    background-color: #BEDB92   ;
 }
 
 .upcoming {
-    background-color: #FBCD26;
+    /* background-color: #FBCD26; */
+    background-color: #77C063;
 }
 
 .done {
-    background-color: #8FBB09;
+    background-color: #569358;
+    /* background-color: #8FBB09; */
 }
 
 .property-button {
@@ -58,6 +61,7 @@ button:hover {
     text-align: center;
     box-sizing: border-box;
     height: 100%;
+    word-wrap: break-word;
 }
 
 .title {
@@ -65,14 +69,14 @@ button:hover {
 }
 
 .row:first-child {
-    background-color: lightblue;
     border-radius: 3px 3px 0 0;
     border-width: 0 0 1px 0;
+    background-color: #ffffff;
 }
 
 .row:last-child {
     border-radius: 0 0 3px 3px;
-}
+}z
 
 .active {
     background-color: lightgrey;

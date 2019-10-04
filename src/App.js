@@ -55,6 +55,10 @@ export default class App extends Component {
     this.setState({ login: !this.state.login })
   }
 
+  editProperty = (property) => {
+
+  }
+
 
   addProperty = (property) => {
     console.log(property)
@@ -115,10 +119,37 @@ export default class App extends Component {
       : selected_properties.push(current_property)
       this.setState({ selected_properties })
   }
+
+  updateProperty = (property) => {
+    fetch(BASE_URL + '/property', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        property
+      })
+    }).then(resp => resp.json())
+    .then(resp => {
+        return resp.property
+          ? this.updateLocalProperty(resp.property)
+          : null
+    })
+  }
+
+  updateLocalProperty = (property) => {
+    let properties = this.state.properties
+    // console.log(properties)
+    let new_properties = properties.map(prop => (prop.id == property.id ? property : prop ))
+
+    this.setState({ properties: new_properties }, () => console.log(this.state.properties))
+    // console.log(properties)
+  }
  
   authenticated = () => {
     return this.state.authenticated
-    ? <PrivateRoute select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    ? <PrivateRoute updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
     : this.initializeForm()
   }
 
@@ -151,7 +182,7 @@ export default class App extends Component {
 
   render(){
     return (
-      <div>
+      <div className='page'>
         {this.authenticated()}
       </div>
     );
