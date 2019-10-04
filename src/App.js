@@ -65,7 +65,11 @@ export default class App extends Component {
         properties: this.state.selected_properties
       })
     }).then(resp => resp.json())
-    .then(() => this.setState({ selected_employees: [], selected_properties: [] }))
+    .then(this.setState({ selected_employees: [], selected_properties: [] }, () => {
+      let properties = this.state.properties
+      let employees = this.state.employees
+    this.setState({employees: [], properties: [] }, () => this.setState({ properties, employees }))
+    }))
   }
 
   addProperty = (property) => {
