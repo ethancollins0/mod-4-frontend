@@ -1,6 +1,7 @@
 import React from 'react'
 import './Navbar.css'
 
+
 const Navbar = ({ logout, toggleForm }) => {
 
 
@@ -13,12 +14,15 @@ const Navbar = ({ logout, toggleForm }) => {
     }
 
     return (
-        <div className='navbar'>
-            <button name='home' onClick={handleClick} className='navbutton'>HOME</button>
-            <button name='about' onClick={handleClick} className='navbutton'>ABOUT</button>
-            <button name='propertyForm' onClick={handleToggle} className='navbutton'>Add Property</button>
-            <button name='employeeForm' onClick={handleToggle} className='navbutton'>Add Employee</button>
-            <button name='logout' onClick={logout} className='navbutton'>LOG OUT</button>
+        <div className='navcontainer'>
+            <div className='navlogo'>
+                <img src={require("./survey-manager-project.png")} alt='logo' className='navimg'></img>
+            </div>
+            <div className='navbar'>
+                <button name='propertyForm' onClick={handleToggle} className='navbutton'>Add Property</button>
+                <button name='employeeForm' onClick={handleToggle} className='navbutton'>Add Employee</button>
+                <button name='logout' onClick={logout} className='navbutton'>LOG OUT</button>
+            </div>
         </div>
     )
 

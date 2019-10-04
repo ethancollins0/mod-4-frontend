@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { EventEmitter } from 'events'
 
 export default class EditPropertyForm extends Component {
 
@@ -34,7 +35,9 @@ export default class EditPropertyForm extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        this.props.updateProperty(this.state)
+        return event.target.name == 'delete'
+            ? this.props.deleteProperty(this.state)
+            : this.props.updateProperty(this.state)
     }
 
     handleChange = (event) => {
@@ -51,7 +54,10 @@ export default class EditPropertyForm extends Component {
                     <input className='add-property-input' name='tenant_email' value={this.state.tenant_email} type='email' onChange={this.handleChange} placeholder='tenant email' required/>
                     <input className='add-property-input' type='tel' pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" name='tenant_phone' value={this.state.tenant_phone} onChange={this.handleChange} placeholder='tenant cell: ###-###-####' required/>
                     <input className='add-property-input' type='date' name='latest_survey_date' value={this.state.latest_survey_date} onChange={this.handleChange} placeholder='latest survey date' required/>
-                    <button className='add-property-button'>Update Property</button>
+                    <div>
+                        <button name='update' onClick={this.handleSubmit} className='add-property-button'>Update Property</button>
+                        <button name='delete' onClick={this.handleSubmit} className='add-property-button'>Delete Property</button>
+                    </div>
                 </form>
             </div>
         )

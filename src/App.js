@@ -138,6 +138,35 @@ export default class App extends Component {
     })
   }
 
+  deleteProperty = (property) => {
+    fetch(BASE_URL + '/property', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${window.localStorage.getItem('token')}`
+      },
+      body: JSON.stringify({
+        property
+      })
+    }).then(resp => resp.json())
+    .then(res => {
+      return res.property
+        ? this.deleteLocalProperty(property)
+        : null
+    })
+  }
+
+  deleteLocalProperty = (property) => {
+    let properties = this.state.properties
+    properties = properties.map(prop => {
+      if (prop.id != property.id){
+        return prop
+      }
+    })
+    console.log(property, properties)
+  //   this.setState({ properties })
+  }
+
   updateLocalProperty = (property) => {
     let properties = this.state.properties
     // console.log(properties)
@@ -149,7 +178,7 @@ export default class App extends Component {
  
   authenticated = () => {
     return this.state.authenticated
-    ? <PrivateRoute updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
+    ? <PrivateRoute deleteProperty={this.deleteProperty} updateProperty={this.updateProperty} select_employee={this.selectEmployee} select_property={this.selectProperty} logout={this.logout} addEmployee={this.addEmployee} addProperty={this.addProperty} properties={this.state.properties} employees={this.state.employees} company={this.state.company}/>
     : this.initializeForm()
   }
 

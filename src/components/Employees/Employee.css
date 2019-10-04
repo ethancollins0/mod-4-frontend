@@ -32,6 +32,9 @@
 
 .employee-row:first-child {
     border-radius: 3px 3px 0 0;
+    border-width: 0 0 1px 0;
+    background-color: #ffffff;
+    border-top: 1px solid black;
 }
 
 .employee-row:last-child {

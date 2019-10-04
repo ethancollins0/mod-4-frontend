@@ -69,7 +69,7 @@ export default class Login extends Component {
             <div className='login-form-container'>
                 <form className='login-form' onSubmit={this.handleSubmit}>
                     <input className='login-form-input' name='username' value={this.state.username} onChange={this.handleChange} placeholder='username' />
-                    <input className='login-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
+                    <input type='password' className='login-form-input' name='password' value={this.state.password} onChange={this.handleChange} placeholder='password' />
                     <button className='login-form-button'>Login</button>
                 </form>
                 <p className='signup-link' onClick={this.handleClick}>Sign Up</p>

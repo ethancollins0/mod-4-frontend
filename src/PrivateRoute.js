@@ -20,6 +20,10 @@ export default class PrivateRoute extends Component {
         this.props.logout()
     }
 
+    deleteProperty = (property) => {
+        this.setState({ editPropertyForm: false, property_to_edit: null }, () => this.props.deleteProperty(property))
+    }
+
     toggleForm = (name, property_to_edit) => {
         if (property_to_edit){
             this.setState({propertyForm: false, employeeForm: false, editPropertyForm: false})
@@ -45,7 +49,7 @@ export default class PrivateRoute extends Component {
                 <Navbar toggleForm={this.toggleForm} logout={this.logout}/>
                 {this.state.propertyForm ? <PropertyForm addProperty={props.addProperty}/> : null}
                 {this.state.employeeForm ? <EmployeeForm addEmployee={props.addEmployee}/> : null}
-                {this.state.editPropertyForm ? <EditPropertyForm updateProperty={props.updateProperty} property={this.state.property_to_edit}/> : null}
+                {this.state.editPropertyForm ? <EditPropertyForm deleteProperty={this.deleteProperty} updateProperty={props.updateProperty} property={this.state.property_to_edit}/> : null}
                 <div className='content'>
                     <div>
                         <PropertyContainer toggleForm={this.toggleForm} surveyFrequency={this.state.surveyFrequency} select={props.select_property} properties={props.properties} />

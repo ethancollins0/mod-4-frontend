@@ -1,12 +1,30 @@
-.navbar {
+.navcontainer {
     height: 100px;
     width: 100%;
-    background-color: grey;
+    background-color: white;
     border: 1px solid black;
-    box-shadow: 3px 3px lightblue;         
+    box-shadow: 2px 2px #000000;     
+    display: flex;    
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+}
+
+.navlogo {
+    height: 100%;
+    
 }
 
 .navbutton {
     height: 100%;
     width: 100px;
+}
+
+.navimg {
+    height: 100%;
+    width: 120px;
+    justify-self: flex-start;
+    background-color: skyblue;
 }
