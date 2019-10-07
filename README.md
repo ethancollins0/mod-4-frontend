@@ -25,6 +25,6 @@ User can delete their properties or employees.
 
 ![delete](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/deleting.gif)
 
-To be able to communicate surveys which need to be completed, a user can select properties and employees, and email a list of properties to that employee's email address.
+Finally, to be able to communicate surveys which need to be completed, a user can select properties and employees, and email a list of properties to that employee's email address.
 
 ![email](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/email.gif) 
