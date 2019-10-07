@@ -17,7 +17,7 @@ Uses encryption and jwt to secure user login and requests. Once logged in, a use
 
 ![adding](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/adding.gif)
 
-User is able to edit their property details, such as latest survey date.
+User is able to edit their property details, such as latest survey date. Surveys are then automatically organized, putting the most urgent / upcoming surveys at the top.
 
 ![editing](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/edit-properties.gif)
 
