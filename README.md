@@ -28,3 +28,9 @@ User can delete their properties or employees.
 Finally, to be able to communicate surveys which need to be completed, a user can select properties and employees, and email a list of properties to that employee's email address.
 
 ![email](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/email.gif) 
+
+## Contributing
+Please feel free to open a pull request or report any bugs, thanks!
+
+## License
+[MIT](https://choosealicense.com/licenses/mit)
