@@ -33,4 +33,4 @@ Finally, to be able to communicate surveys which need to be completed, a user ca
 Please feel free to open a pull request or report any bugs, thanks!
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit)
+[GNU GPLv3](https://choosealicense.com/licenses/gpl-3.0/)
