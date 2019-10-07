@@ -5,7 +5,15 @@
 
 Survey Manager is a web app I made in 1 week at Flatiron School. The goal of this project was to allow property managers to better organize their property surveys (inspections), and set up a simple way to communicate with employees. It allows you to add and remove properties and employees, automatically organize properties by when the next survey needs to be completed, and email selected properties to an employee's email address.
 
-Technologies: 
+##### [Backend](https://github.com/ethancollins0/mod-4-backend)
+- Node.js
+- Express
+ 
+##### [Frontend](https://github.com/ethancollins0/mod-4-frontend)
+- React.js
+
+
+
 
 
 
