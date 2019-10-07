@@ -21,6 +21,9 @@ User is able to edit their property details, such as latest survey date. Surveys
 
 ![editing](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/edit-properties.gif)
 
+User can delete their properties or employees.
+
+![delete](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/deleting.gif)
 
 
 
