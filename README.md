@@ -12,6 +12,9 @@ Survey Manager is a web app I made in 1 week at Flatiron School. The goal of thi
 ##### [Frontend](https://github.com/ethancollins0/mod-4-frontend)
 - React.js
 
+## Features
+Uses encryption and jwt to secure user login and requests. Once logged in, a user can add properties and employees.
+![adding](https://github.com/ethancollins0/mod-4-backend/blob/master/GitFiles/adding.gif)
 
 
 
